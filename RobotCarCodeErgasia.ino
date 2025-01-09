@@ -32,7 +32,7 @@ void setup()
 	pinMode(motorL2, OUTPUT);
 	pinMode(leftSW, INPUT_PULLUP);
 	pinMode(rightSW, INPUT_PULLUP);
-  pinMode(led, 	OUTPUT);
+	pinMode(led, OUTPUT);
 	pinMode(buzzer, OUTPUT);
 	
 	//Init servo and starting position
@@ -50,7 +50,7 @@ void loop()
 	//If an obstacle is detected at 10cm, stop the car and maneuver.
 	if (distance <= 10){
 		stop();
-    tone(buzzer,500); // play a tone
+		tone(buzzer,500); // play a tone
 		digitalWrite(led,HIGH); // turn the led on
 		//Look right side
 		for (pos = 0; pos <= 180; pos += 1) { // go from 0 to 180 degrees
@@ -73,14 +73,14 @@ void loop()
   		
   		//Compare left and right distances and make the best turn decision
   		if (leftDistance > rightDistance){
-        backward();
-        delay(200);
+                        backward();
+                        delay(200);
   			left();
   			delay(300); // In this setup this time corresponds to approx. 90 deg. turn
   		}
   		else if (leftDistance < rightDistance){
-        backward();
-        delay(200);
+                        backward();
+                        delay(200);
   			right();
   			delay(300); // In this setup this time corresponds to approx. 90 deg. turn
   		}
@@ -101,15 +101,15 @@ void loop()
 		//Check for contact and if contact is detected move backwards and turn in order to avoid the obstacle!
 		if (leftSWState == LOW){
 			tone(buzzer,1000); // play a tone
-      digitalWrite(led,HIGH); // turn the led on
-      backward();
+                        digitalWrite(led,HIGH); // turn the led on
+                        backward();
 			delay(500);
 			right();
 			delay(250);
 		}
 		if (rightSWState == LOW){
-      tone(buzzer,1000); // play a tone
-      digitalWrite(led,HIGH); // turn the led on
+                        tone(buzzer,1000); // play a tone
+                        digitalWrite(led,HIGH); // turn the led on
 			backward();
 			delay(500);
 			left();
@@ -117,7 +117,7 @@ void loop()
 		}
 		
 		forward();
-    noTone(buzzer);
+                noTone(buzzer);
 		digitalWrite(led,LOW);
 	}
 	
