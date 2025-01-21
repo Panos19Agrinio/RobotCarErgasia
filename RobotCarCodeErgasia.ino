@@ -87,7 +87,7 @@ void loop()
   		else{ //when two distances are exactly equal (rare scenario)
   			backward();
   			delay(500);// Reverse for half a second 
-  			right(); 	// and turn slightly to the right in order to reorientate
+  			right(); 	// and turn slightly to the right in order to re-orientate
   			delay(100);
   		}
   		
@@ -124,35 +124,30 @@ void loop()
 }
 
 //Movement and Stop functions
-
 void backward(){
 	digitalWrite(motorR1, HIGH);
 	digitalWrite(motorR2, LOW);
 	digitalWrite(motorL1, HIGH);
 	digitalWrite(motorL2, LOW);
 }
-
 void forward(){
 	digitalWrite(motorR1, LOW);
 	digitalWrite(motorR2, HIGH);
 	digitalWrite(motorL1, LOW);
 	digitalWrite(motorL2, HIGH);
 }
-
 void left(){
 	digitalWrite(motorR1, LOW);
 	digitalWrite(motorR2, HIGH);
 	digitalWrite(motorL1, HIGH);
 	digitalWrite(motorL2, LOW);
 }
-
 void right(){
 	digitalWrite(motorR1, HIGH);
 	digitalWrite(motorR2, LOW);
 	digitalWrite(motorL1, LOW);
 	digitalWrite(motorL2, HIGH);
 }
-
 void stop(){
 	digitalWrite(motorR1, LOW);
 	digitalWrite(motorR2, LOW);
